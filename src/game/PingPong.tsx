@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Canvas from 'react-responsive-canvas'
 
+
+// const   PureCanvas = React.forwardRef((props, ref) => <canvas ref={ref}  />);
+
 export const Game = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const scoreRef = useRef<HTMLDivElement>(null);
@@ -42,15 +45,15 @@ export const Game = () => {
             context.fillStyle = 'white';
             context.fillRect(0,leftPaddleY,paddleWidth,paddleHeight);
             context.fillRect(canvas.width-paddleWidth,rightPaddleY,paddleWidth,paddleHeight);
-
         }
     }, []);
+
     // const linearGradient = 'linear-gradient( red, yellow)'
     // style={{ borderImage : linearGradient}}  className='border-8 rounded-2xl '
     return (<div className="w-full bg-cyan-600 flex justify-center items-center h-screen" >
         <div ref={scoreRef} className='absolute top-0 left-0 right-0 text-center text-4xl text-white'>0</div>
-        <Canvas canvasRef={el => (this.canvas = el)} onResize={this.draw} />
-        {/* <canvas  className=' border-8 rounded-2xl border-l-indigo-900 border-r-indigo-900 border-t-black border-b-black ' ref={canvasRef}  width={900} height={500} /> */}
+        {/* <Canvas canvasRef={el => (this.canvas = el)} onResize={this.draw}  */}
+        <canvas  className=' border-8 rounded-2xl border-l-indigo-900 border-r-indigo-900 border-t-black border-b-black ' ref={canvasRef}  width={900} height={500} />
     </div>
     );
 }
