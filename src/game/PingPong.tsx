@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import Canvas from 'react-responsive-canvas'
+import { useEffect, useRef } from 'react';
+// import React, { useEffect, useRef } from 'react';
+// import Canvas from 'react-responsive-canvas'
 
 
 // const   PureCanvas = React.forwardRef((props, ref) => <canvas ref={ref}  />);

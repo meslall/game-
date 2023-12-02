@@ -1,7 +1,7 @@
 import  {Game}  from './game/PingPong'
 
 export const App = () => {
-  const imageUrl = '../assets/bg.png'
+  // const imageUrl = '../assets/bg.png'
 
   return (
     <div>
