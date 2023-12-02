@@ -43,11 +43,11 @@ export const Game = () => {
                 context.stroke();
                 context.closePath();
                 
-                context.beginPath();
-                context.arc(canvas.width / 2, canvas.height / 2, 5, 0, Math.PI * 2);
-                context.fillStyle = 'red';
-                context.fill();
-                context.closePath();
+                // context.beginPath();
+                // context.arc(canvas.width / 2, canvas.height / 2, 5, 0, Math.PI * 2);
+                // context.fillStyle = 'red';
+                // context.fill();
+                // context.closePath();
                 
                 context.fillStyle = 'white';
                 context.fillRect(0,leftPaddleY,paddleWidth,paddleHeight);
@@ -57,8 +57,33 @@ export const Game = () => {
         };
 
         resizeCanvas();
-        draw();
+        // draw();
+// start
+  let xCoordinate = canvas?.width / 2;
 
+  const drawMovingCircle = () => {
+    // Clear the entire canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    draw();
+
+    // Draw the circle at the updated X-coordinate
+    context.beginPath();
+    context.arc(xCoordinate, canvas.height / 2, 5, 0, Math.PI * 2);
+    context.fillStyle = 'red';
+    context.fill();
+    context.closePath();
+
+    // Move the circle to the right (you can adjust the value for the desired speed)
+    xCoordinate += 2;
+
+    // Request the next animation frame
+    requestAnimationFrame(drawMovingCircle);
+  }
+
+  // Start the animation
+  drawMovingCircle();
+// end
         window.addEventListener('resize', () => {
             resizeCanvas();
             draw();
